@@ -308,6 +308,33 @@ export const ConditionsWeTreat: React.FC = () => {
     setSelectedCardId((prev) => (prev === serviceId ? null : serviceId));
   };
 
+  // Click outside / empty space listener: deselects card and resumes auto-glide
+  useEffect(() => {
+    if (!selectedCardId) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
+      // Ignore clicks inside any service card, selection pill, or modal
+      if (
+        target.closest("[data-service-card]") ||
+        target.closest("[data-service-pill]") ||
+        target.closest("[role='dialog']")
+      ) {
+        return;
+      }
+
+      // Clicked on empty space anywhere -> deselect card and resume glide
+      setSelectedCardId(null);
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [selectedCardId]);
+
   // Manual arrow navigation with smooth card-by-card stepping and bidirectional infinite loop
   const scrollByAmount = (direction: "left" | "right") => {
     const el = containerRef.current;
@@ -403,7 +430,7 @@ export const ConditionsWeTreat: React.FC = () => {
         </div>
 
 
-        {/* Selected Card Status Indicator / Helper Pill (Centered) */}
+        {/* Selected Card Status Indicator / Action Pill (Centered) */}
         <AnimatePresence>
           {selectedCardId && (
             <motion.div
@@ -411,26 +438,32 @@ export const ConditionsWeTreat: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               className="flex justify-center mb-6"
+              data-service-pill
             >
-              <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2.5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-xs sm:text-sm font-semibold font-heading shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+              <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-xs sm:text-sm font-semibold font-heading shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>
-                  Selected: <strong>{clinicServices.find((s) => s.id === selectedCardId)?.title}</strong> (Auto-Glide Paused)
+                  Selected: <strong>{clinicServices.find((s) => s.id === selectedCardId)?.title}</strong>
                 </span>
                 <button
                   onClick={() => {
                     const s = clinicServices.find((s) => s.id === selectedCardId);
                     if (s) setDetailModalService(s);
                   }}
-                  className="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors"
+                  className="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors cursor-pointer"
                 >
                   View Full Details
                 </button>
                 <button
-                  onClick={() => setSelectedCardId(null)}
-                  className="text-xs font-bold text-slate-500 hover:text-slate-800 underline underline-offset-2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedCardId(null);
+                  }}
+                  className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-emerald-100 transition-colors cursor-pointer"
+                  aria-label="Close"
+                  title="Deselect"
                 >
-                  Resume Auto-Glide
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
@@ -455,7 +488,11 @@ export const ConditionsWeTreat: React.FC = () => {
             return (
               <div
                 key={`${service.id}-${idx}`}
-                onClick={() => handleCardClick(service.id)}
+                data-service-card
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick(service.id);
+                }}
                 className={`group relative flex flex-col rounded-3xl bg-white border transition-all duration-500 w-[315px] xs:w-[330px] sm:w-[350px] lg:w-[370px] shrink-0 overflow-hidden cursor-pointer select-none ${
                   isSelected
                     ? "border-emerald-500 ring-4 ring-emerald-400/40 shadow-2xl scale-[1.02]"
