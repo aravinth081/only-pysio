@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center my-auto pt-6 sm:pt-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             {/* Top Clinical Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-950/65 backdrop-blur-xl border border-white/20 hover:border-emerald-400/50 shadow-[0_4px_24px_rgba(0,0,0,0.4)] mb-3 sm:mb-4 transition-all duration-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] mb-3 sm:mb-4 transition-all duration-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_10px_#34D399]" />
@@ -166,19 +166,19 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Trust Proof Micro-Badge Strip */}
-            <div className="mt-6 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-2xl sm:rounded-full bg-slate-950/65 backdrop-blur-xl border border-white/20 shadow-[0_6px_24px_rgba(0,0,0,0.4)] text-[10px] sm:text-xs text-white font-bold uppercase tracking-wider max-w-full">
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="mt-6 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 px-4 py-2.5 sm:px-6 sm:py-2.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 shadow-[0_8px_32px_rgba(6,78,59,0.45),inset_0_1px_1px_rgba(52,211,153,0.35)] text-[10px] sm:text-xs text-emerald-50 font-black uppercase tracking-wider max-w-full transition-all duration-300">
+              <span className="inline-flex items-center gap-1.5 text-white">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
                 <span>Home Visit</span>
               </span>
-              <div className="hidden sm:block w-px h-3.5 bg-white/25" />
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="hidden sm:block w-px h-3.5 bg-emerald-400/40" />
+              <span className="inline-flex items-center gap-1.5 text-white">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
                 <span>Certified Senior Physios</span>
               </span>
-              <div className="hidden sm:block w-px h-3.5 bg-white/25" />
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="hidden sm:block w-px h-3.5 bg-emerald-400/40" />
+              <span className="inline-flex items-center gap-1.5 text-white">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
                 <span>Sterile Equipment</span>
               </span>
             </div>
