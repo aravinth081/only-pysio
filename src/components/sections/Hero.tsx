@@ -70,14 +70,8 @@ export const Hero: React.FC = () => {
           </picture>
 
           {/* Crisp, Balanced Contrast Overlay */}
-          <div className="absolute inset-0 bg-slate-950/15 sm:bg-slate-950/20 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-slate-950/25 pointer-events-none" />
-
-          {/* Lush Clinical Emerald Green Atmosphere & Glow beneath the 3 Words (Replacing Black with Green) */}
-          <div className="absolute inset-x-0 bottom-0 h-80 sm:h-96 bg-gradient-to-t from-emerald-800 via-emerald-700/85 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-emerald-600/40 via-primary/25 to-transparent pointer-events-none" />
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[700px] max-w-full h-[220px] bg-emerald-400/35 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-white pointer-events-none" />
+          <div className="absolute inset-0 bg-slate-950/20 sm:bg-slate-950/25 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-slate-950/25 pointer-events-none" />
         </div>
 
         {/* Central Hero Showcase */}
@@ -171,21 +165,21 @@ export const Hero: React.FC = () => {
               </motion.button>
             </div>
 
-            {/* Trust Proof Micro-Badge Strip */}
-            <div className="mt-6 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 px-5 py-3 sm:px-7 sm:py-3 rounded-2xl sm:rounded-full bg-gradient-to-r from-emerald-600 via-primary to-emerald-600 shadow-[0_8px_30px_rgba(22,163,74,0.5)] border-2 border-emerald-300/80 text-[11px] sm:text-xs text-white font-black uppercase tracking-wider max-w-full transition-all duration-300">
-              <span className="inline-flex items-center gap-1.5 text-white">
-                <CheckCircle2 className="w-4 h-4 text-white drop-shadow-md" />
-                <span className="drop-shadow-xs">Home Visit</span>
+            {/* Trust Proof Micro-Badge Strip - Matched exactly to Image 2 eyebrow badge */}
+            <div className="mt-6 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] text-[10px] sm:text-xs text-emerald-300 font-black uppercase tracking-wider max-w-full transition-all duration-300">
+              <span className="inline-flex items-center gap-1.5 text-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
+                <span>Home Visit</span>
               </span>
-              <div className="hidden sm:block w-px h-4 bg-white/40" />
-              <span className="inline-flex items-center gap-1.5 text-white">
-                <CheckCircle2 className="w-4 h-4 text-white drop-shadow-md" />
-                <span className="drop-shadow-xs">Certified Senior Physios</span>
+              <div className="hidden sm:block w-px h-3.5 bg-emerald-400/30" />
+              <span className="inline-flex items-center gap-1.5 text-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
+                <span>Certified Senior Physios</span>
               </span>
-              <div className="hidden sm:block w-px h-4 bg-white/40" />
-              <span className="inline-flex items-center gap-1.5 text-white">
-                <CheckCircle2 className="w-4 h-4 text-white drop-shadow-md" />
-                <span className="drop-shadow-xs">Sterile Equipment</span>
+              <div className="hidden sm:block w-px h-3.5 bg-emerald-400/30" />
+              <span className="inline-flex items-center gap-1.5 text-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
+                <span>Sterile Equipment</span>
               </span>
             </div>
           </div>
