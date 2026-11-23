@@ -92,22 +92,13 @@ export default function AdminPortalPage() {
     const u = usernameInput.trim().toLowerCase();
     const p = passwordInput.trim();
 
-    // Support both primary OnlyPhysio admin and InnovationHacks admin credentials
-    const validUser =
-      u === "onlyphysio@.in" ||
-      u === "admin.innovationhacks@2k" ||
-      u === "innovationhacks" ||
-      u === "admin";
-
-    const validPass =
-      p === "9176024067.in" ||
-      p === "admin.innovationhacks@2k" ||
-      p === "innovationhacks" ||
-      p === "9042718811";
+    // Strictly enforce OnlyPhysio Admin Credentials
+    const validUser = u === "onlyphysio21@gmail.com";
+    const validPass = p === "physio67.in";
 
     if (validUser && validPass) {
       sessionStorage.setItem("onlyphysio_admin_auth", "true");
-      sessionStorage.setItem("onlyphysio_admin_user", u);
+      sessionStorage.setItem("onlyphysio_admin_user", "OnlyPhysio21@gmail.com");
       setIsAuthenticated(true);
       loadData();
     } else {
