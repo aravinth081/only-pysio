@@ -70,8 +70,14 @@ export const Hero: React.FC = () => {
           </picture>
 
           {/* Crisp, Balanced Contrast Overlay */}
-          <div className="absolute inset-0 bg-slate-950/20 sm:bg-slate-950/25 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/25 pointer-events-none" />
+          <div className="absolute inset-0 bg-slate-950/15 sm:bg-slate-950/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-slate-950/25 pointer-events-none" />
+
+          {/* Lush Clinical Emerald Green Atmosphere & Glow beneath the 3 Words (Replacing Black with Green) */}
+          <div className="absolute inset-x-0 bottom-0 h-80 sm:h-96 bg-gradient-to-t from-emerald-800 via-emerald-700/85 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-emerald-600/40 via-primary/25 to-transparent pointer-events-none" />
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[700px] max-w-full h-[220px] bg-emerald-400/35 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-white pointer-events-none" />
         </div>
 
         {/* Central Hero Showcase */}
