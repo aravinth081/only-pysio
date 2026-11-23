@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <!-- Gradient for brush circle ring -->
+    <linearGradient id="logoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="50%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="60" cy="60" r="58" />
+    </clipPath>
+  </defs>
+
+  <!-- Dark Slate/Navy circular background -->
+  <circle cx="60" cy="60" r="59" fill="#202530" />
+
+  <!-- Outer Ring Stroke -->
+  <circle cx="60" cy="60" r="46" fill="none" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="270 20" />
+
+  <!-- Direct high-res image embedding -->
+  <image width="120" height="120" href="/images/logo.jpg" clip-path="url(#circleClip)" preserveAspectRatio="xMidYMid slice" />
+
+  <!-- Vector Fallback (matches exact OnlyPhysio logo) -->
+  <g id="vectorFallback">
+    <!-- Rehab Exercise Table / Parallel Bar -->
+    <rect x="42" y="66" width="36" height="3" rx="1.5" fill="#F97316" />
+    <rect x="45" y="69" width="3" height="15" rx="1.5" fill="#F97316" />
+    <rect x="72" y="69" width="3" height="15" rx="1.5" fill="#F97316" />
+
+    <!-- Walking Patient Figure -->
+    <circle cx="56" cy="51" r="4.5" fill="#F97316" />
+    <path d="M56 56 L52 66 M56 56 L62 64 M52 66 L48 78 M52 66 L55 78" stroke="#F97316" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Script Text "only physio" -->
+    <text x="60" y="93" text-anchor="middle" fill="#F97316" font-family="'Brush Script MT', cursive, sans-serif" font-size="12" font-weight="bold">only physio</text>
+
+    <!-- Subtitle "EXPERT HOMECARE THERAPIST" -->
+    <text x="60" y="102" text-anchor="middle" fill="#F1F5F9" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="4.2" font-weight="bold" letter-spacing="0.6">EXPERT HOMECARE THERAPIST</text>
+  </g>
+</svg>
