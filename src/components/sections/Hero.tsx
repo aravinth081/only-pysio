@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative flex flex-col justify-between overflow-hidden">
       {/* 1. Main Hero Stage */}
-      <div className="relative min-h-[80vh] sm:min-h-[85vh] lg:min-h-[94vh] pt-20 pb-8 sm:pt-28 sm:pb-12 flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[86vh] sm:min-h-[85vh] lg:min-h-[94vh] pt-24 pb-8 sm:pt-28 sm:pb-12 flex items-center justify-center overflow-hidden">
         {/* Full Clinical Physiotherapy Team Rehabilitation Image */}
         <div className="absolute inset-0 z-0">
           <picture className="w-full h-full block">
@@ -75,10 +75,10 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Central Hero Showcase */}
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center my-auto pt-6 sm:pt-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center my-auto pt-8 sm:pt-10">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             {/* Top Clinical Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] mb-3 sm:mb-4 transition-all duration-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] mt-2 sm:mt-0 mb-3 sm:mb-4 transition-all duration-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_10px_#34D399]" />
@@ -118,7 +118,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Subheadline */}
-            <p className="text-xs sm:text-sm lg:text-base text-slate-100 font-medium max-w-xl leading-relaxed mb-6 sm:mb-7 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            <p className="text-xs sm:text-sm lg:text-base text-slate-100 font-medium max-w-xl leading-relaxed mb-5 sm:mb-7 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
               Clinically guided care for pain relief, functional mobility, and rapid recovery — delivered with hospital-grade equipment at your home.
             </p>
 
@@ -166,7 +166,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Trust Proof Micro-Badge Strip - Matched exactly to Image 2 eyebrow badge */}
-            <div className="mt-6 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] text-[10px] sm:text-xs text-emerald-300 font-black uppercase tracking-wider max-w-full transition-all duration-300">
+            <div className="mt-4 sm:mt-7 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-emerald-950/90 via-[#0c2e1b]/95 to-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 hover:border-emerald-300/60 shadow-[0_6px_24px_rgba(6,78,59,0.35)] text-[10px] sm:text-xs text-emerald-300 font-black uppercase tracking-wider max-w-full transition-all duration-300">
               <span className="inline-flex items-center gap-1.5 text-emerald-300">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
                 <span>Home Visit</span>
@@ -184,45 +184,45 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Mobile-Exclusive Authority Stats & Priority Tagline (Exclusively on Mobile) */}
-            <div className="mt-5 sm:hidden w-full max-w-sm px-1">
-              <div className="rounded-2xl bg-gradient-to-b from-[#0c2e1b]/85 via-[#082415]/90 to-[#05180e]/95 border border-emerald-400/35 backdrop-blur-xl p-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+            <div className="mt-2.5 sm:hidden w-full max-w-[290px] px-1">
+              <div className="rounded-xl bg-gradient-to-r from-emerald-950/85 via-[#0c2e1b]/90 to-emerald-950/85 border border-emerald-400/30 backdrop-blur-md px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
                 {/* 3 Clinical Metrics */}
                 <div className="grid grid-cols-3 divide-x divide-emerald-400/25 items-center text-center">
                   {/* 10+ Years Experience */}
                   <div className="px-1 flex flex-col items-center">
-                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                    <span className="text-base font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
                       10<span className="text-emerald-400 font-extrabold">+</span>
                     </span>
-                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                    <span className="text-[9px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
                       Years<br />Experience
                     </span>
                   </div>
 
                   {/* 10K+ Happy Patients */}
                   <div className="px-1 flex flex-col items-center">
-                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                    <span className="text-base font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
                       10K<span className="text-amber-400 font-extrabold">+</span>
                     </span>
-                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                    <span className="text-[9px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
                       Happy<br />Patients
                     </span>
                   </div>
 
                   {/* 100% Patient Focused */}
                   <div className="px-1 flex flex-col items-center">
-                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                    <span className="text-base font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
                       100<span className="text-emerald-400 font-extrabold">%</span>
                     </span>
-                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                    <span className="text-[9px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
                       Patient<br />Focused
                     </span>
                   </div>
                 </div>
 
                 {/* Priority Motto Ribbon */}
-                <div className="mt-2.5 pt-2 border-t border-emerald-400/20 flex items-center justify-center gap-1.5 text-center">
+                <div className="mt-1.5 pt-1.5 border-t border-emerald-400/20 flex items-center justify-center gap-1.5 text-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-300 drop-shadow-xs">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-emerald-300 drop-shadow-xs">
                     Your Recovery, Our Priority
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
