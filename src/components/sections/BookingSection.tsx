@@ -38,6 +38,7 @@ const bookingSchema = z.object({
   preferredDate: z.string().min(1, "Please select an appointment date"),
   preferredTime: z.string().min(1, "Please select a preferred time slot"),
   serviceType: z.enum(["home-visit", "clinic"]),
+  address: z.string().optional(),
   notes: z.string().optional(),
 });
 
