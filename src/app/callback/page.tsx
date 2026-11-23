@@ -356,8 +356,9 @@ export default function RequestCallbackPage() {
             <div className="w-full max-w-2xl mx-auto my-3 sm:my-8 bg-white rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-emerald-500/80 overflow-hidden text-slate-900 transition-all">
               
               {/* Slip Header Banner (Deep Forest Green with OnlyPhysio Logo & Gold Accent) */}
-              <div className="bg-[#0c2e1b] text-white p-4 sm:p-6 relative">
-                <div className="flex items-center justify-between gap-2.5 sm:gap-4">
+              <div className="bg-[#0c2e1b] text-white p-3.5 sm:p-6 relative">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                  {/* Left: Brand Identity */}
                   <div className="flex items-center gap-2.5 sm:gap-4 min-w-0">
                     {/* OnlyPhysio Brand Logo (Instant Zero-Delay Paint) */}
                     <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-[#202530] overflow-hidden p-0 shadow-md border-2 border-amber-400 shrink-0 flex items-center justify-center">
@@ -370,21 +371,26 @@ export default function RequestCallbackPage() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <h2 className="text-lg sm:text-2xl font-black font-heading tracking-tight text-white uppercase truncate">
-                        ONLY PHYSIO
-                      </h2>
-                      <span className="inline-block mt-0.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-[10px] sm:text-xs font-black uppercase tracking-widest">
-                        Chennai
-                      </span>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h2 className="text-lg sm:text-2xl font-black font-heading tracking-tight text-white uppercase whitespace-nowrap">
+                          ONLY PHYSIO
+                        </h2>
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-[10px] sm:text-xs font-black uppercase tracking-widest">
+                          Chennai
+                        </span>
+                      </div>
+                      <p className="text-[10px] sm:text-xs text-emerald-300/80 font-medium tracking-wide mt-0.5 whitespace-nowrap">
+                        Expert Homecare Physiotherapy
+                      </p>
                     </div>
                   </div>
 
-                  {/* Request Reference Pill */}
-                  <div className="bg-emerald-950/85 border border-emerald-400/60 rounded-xl sm:rounded-2xl px-2.5 py-1.5 sm:p-3 text-right shrink-0 shadow-inner">
-                    <span className="text-[9px] sm:text-[10px] font-bold text-emerald-300 uppercase tracking-widest block">
+                  {/* Right / Below on Mobile: Request Reference Pill */}
+                  <div className="bg-emerald-950/90 border border-emerald-400/60 rounded-xl sm:rounded-2xl px-3 py-2 sm:p-3 shadow-inner flex items-center justify-between sm:block sm:text-right shrink-0">
+                    <span className="text-[10px] sm:text-[10px] font-bold text-emerald-300 uppercase tracking-widest block">
                       REQUEST REF ID
                     </span>
-                    <span className="text-base sm:text-2xl font-black font-mono text-amber-400 tracking-wider">
+                    <span className="text-sm sm:text-xl lg:text-2xl font-black font-mono text-amber-400 tracking-wider">
                       #{callbackId}
                     </span>
                   </div>
@@ -392,10 +398,10 @@ export default function RequestCallbackPage() {
               </div>
 
               {/* Status Alert Bar */}
-              <div className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 py-2.5 flex items-center justify-between flex-wrap gap-1.5">
+              <div className="bg-emerald-50 border-b border-emerald-200 px-3.5 sm:px-6 py-2.5 flex items-center justify-between flex-wrap gap-1.5">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
-                  <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-emerald-950 truncate">
+                  <span className="text-[10.5px] min-[380px]:text-xs font-black uppercase tracking-wider text-emerald-950">
                     STATUS: REGISTERED & ROUTED TO CLINICAL DESK
                   </span>
                 </div>
@@ -408,34 +414,34 @@ export default function RequestCallbackPage() {
               <div className="p-3.5 min-[380px]:p-4 sm:p-7 space-y-3 sm:space-y-4">
                 <div className="border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-xs divide-y divide-slate-100 text-xs sm:text-sm">
                   
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-slate-500 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Patient Name</span>
-                    <span className="font-black text-slate-950 text-right sm:text-left truncate">{formData.fullName}</span>
+                    <span className="font-black text-slate-950 text-right sm:text-left break-words">{formData.fullName}</span>
                   </div>
 
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-slate-500 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Contact Phone</span>
                     <span className="font-mono font-bold text-slate-900 text-right sm:text-left">{formData.phone}</span>
                   </div>
 
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-slate-500 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Locality</span>
-                    <span className="font-bold text-slate-900 text-right sm:text-left truncate">📍 {formData.locationArea || "Chennai"}</span>
+                    <span className="font-bold text-slate-900 text-right sm:text-left break-words">📍 {formData.locationArea || "Chennai"}</span>
                   </div>
 
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-slate-500 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Health Concern</span>
-                    <span className="font-black text-emerald-900 text-right sm:text-left truncate">{formData.primaryConcern}</span>
+                    <span className="font-black text-emerald-900 text-right sm:text-left break-words">{formData.primaryConcern}</span>
                   </div>
 
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center bg-slate-50/70 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-slate-500 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Callback Window</span>
-                    <span className="font-bold text-slate-900 text-right sm:text-left truncate">
+                    <span className="font-bold text-slate-900 text-right sm:text-left break-words">
                       ⏰ {formData.preferredTime === "Immediately" ? "Immediate (within 15 mins)" : formData.preferredTime}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-[115px_1fr] min-[390px]:grid-cols-[135px_1fr] sm:grid-cols-[180px_1fr] items-center bg-emerald-50/60 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
+                  <div className="grid grid-cols-[105px_1fr] min-[390px]:grid-cols-[130px_1fr] sm:grid-cols-[180px_1fr] items-center bg-emerald-50/60 px-3 py-2 sm:px-4 sm:py-2.5 gap-2">
                     <span className="font-bold text-emerald-900 uppercase text-[10px] min-[380px]:text-[11px] tracking-wide shrink-0">Doctor Hotline</span>
                     <span className="font-black text-emerald-800 font-mono text-right sm:text-left">+91 90427 18811</span>
                   </div>
