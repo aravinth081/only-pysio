@@ -182,6 +182,53 @@ export const Hero: React.FC = () => {
                 <span>Sterile Equipment</span>
               </span>
             </div>
+
+            {/* Mobile-Exclusive Authority Stats & Priority Tagline (Exclusively on Mobile) */}
+            <div className="mt-5 sm:hidden w-full max-w-sm px-1">
+              <div className="rounded-2xl bg-gradient-to-b from-[#0c2e1b]/85 via-[#082415]/90 to-[#05180e]/95 border border-emerald-400/35 backdrop-blur-xl p-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+                {/* 3 Clinical Metrics */}
+                <div className="grid grid-cols-3 divide-x divide-emerald-400/25 items-center text-center">
+                  {/* 10+ Years Experience */}
+                  <div className="px-1 flex flex-col items-center">
+                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                      10<span className="text-emerald-400 font-extrabold">+</span>
+                    </span>
+                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                      Years<br />Experience
+                    </span>
+                  </div>
+
+                  {/* 10K+ Happy Patients */}
+                  <div className="px-1 flex flex-col items-center">
+                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                      10K<span className="text-amber-400 font-extrabold">+</span>
+                    </span>
+                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                      Happy<br />Patients
+                    </span>
+                  </div>
+
+                  {/* 100% Patient Focused */}
+                  <div className="px-1 flex flex-col items-center">
+                    <span className="text-xl font-black font-heading tracking-tight text-white drop-shadow-[0_2px_8px_rgba(52,211,153,0.5)]">
+                      100<span className="text-emerald-400 font-extrabold">%</span>
+                    </span>
+                    <span className="text-[10px] font-bold text-emerald-200/90 leading-tight mt-0.5 uppercase tracking-wide">
+                      Patient<br />Focused
+                    </span>
+                  </div>
+                </div>
+
+                {/* Priority Motto Ribbon */}
+                <div className="mt-2.5 pt-2 border-t border-emerald-400/20 flex items-center justify-center gap-1.5 text-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-300 drop-shadow-xs">
+                    Your Recovery, Our Priority
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
