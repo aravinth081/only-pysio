@@ -16,14 +16,64 @@ import {
   Maximize2,
   Volume2,
   RotateCcw,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { physioTubeVideos, PhysioTubeVideo } from "@/data/physiotubes";
 import { siteContent } from "@/data/content";
 
 export const PhysioTubes: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<"all" | "lectures" | "shorts">("all");
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [playingInlineId, setPlayingInlineId] = useState<string | null>(null);
   const [modalVideo, setModalVideo] = useState<PhysioTubeVideo | null>(null);
+
+  const handleFilterChange = (filter: "all" | "lectures" | "shorts") => {
+    setActiveFilter(filter);
+    setPlayingInlineId(null);
+    setIsExpanded(false);
+  };
+
+  const handleToggleExpand = () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+      setPlayingInlineId(null);
+      const section = document.getElementById("physiotubes");
+      if (section) {
+        const topOffset = section.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
+      }
+    } else {
+      setIsExpanded(true);
+    }
+  };
+
+  const filteredVideos = physioTubeVideos.filter((video) => {
+    if (activeFilter === "lectures") return !video.isShort;
+    if (activeFilter === "shorts") return video.isShort;
+    return true;
+  });
+
+  const getItemVisibilityClass = (index: number) => {
+    if (isExpanded) {
+      return "flex";
+    }
+
+    if (activeFilter === "all") {
+      // Mobile view: 4 videos (0, 1, 2, 3)
+      // Desktop view: 6 videos (0, 1, 2, 3, 4, 5)
+      if (index < 4) return "flex";
+      if (index < 6) return "hidden md:flex";
+      return "hidden";
+    }
+
+    // Clinical Lectures & Anatomy Shorts:
+    // Mobile view: 4 videos (0, 1, 2, 3)
+    // Desktop view: 3 videos (0, 1, 2)
+    if (index < 3) return "flex";
+    if (index < 4) return "flex md:hidden";
+    return "hidden";
+  };
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -92,10 +142,7 @@ export const PhysioTubes: React.FC = () => {
           {/* Filter Tabs */}
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-8 flex-wrap">
             <button
-              onClick={() => {
-                setActiveFilter("all");
-                setPlayingInlineId(null);
-              }}
+              onClick={() => handleFilterChange("all")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all cursor-pointer ${
                 activeFilter === "all"
                   ? "bg-[#14532D] text-white shadow-sm scale-102"
@@ -106,10 +153,7 @@ export const PhysioTubes: React.FC = () => {
             </button>
 
             <button
-              onClick={() => {
-                setActiveFilter("lectures");
-                setPlayingInlineId(null);
-              }}
+              onClick={() => handleFilterChange("lectures")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all cursor-pointer ${
                 activeFilter === "lectures"
                   ? "bg-[#14532D] text-white shadow-sm scale-102"
@@ -120,10 +164,7 @@ export const PhysioTubes: React.FC = () => {
             </button>
 
             <button
-              onClick={() => {
-                setActiveFilter("shorts");
-                setPlayingInlineId(null);
-              }}
+              onClick={() => handleFilterChange("shorts")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all cursor-pointer ${
                 activeFilter === "shorts"
                   ? "bg-[#14532D] text-white shadow-sm scale-102"
@@ -135,21 +176,16 @@ export const PhysioTubes: React.FC = () => {
           </div>
         </div>
 
-        {/* 3x3 Responsive Video Grid (All videos rendered in DOM for 0ms instant tab switching) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-          {physioTubeVideos.map((video) => {
+        {/* Responsive Video Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredVideos.map((video, idx) => {
             const isPlayingInline = playingInlineId === video.id;
-            const isVisible =
-              activeFilter === "all" ||
-              (activeFilter === "lectures" && !video.isShort) ||
-              (activeFilter === "shorts" && video.isShort);
+            const visibilityClass = getItemVisibilityClass(idx);
 
             return (
               <article
                 key={video.id}
-                className={`group relative rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500/50 shadow-xs hover:shadow-[0_16px_36px_rgba(20,83,45,0.09)] transition-all duration-300 hover:-translate-y-1 overflow-hidden flex-col ${
-                  isVisible ? "flex" : "hidden"
-                }`}
+                className={`group relative rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500/50 shadow-xs hover:shadow-[0_16px_36px_rgba(20,83,45,0.09)] transition-all duration-300 hover:-translate-y-1 overflow-hidden flex-col ${visibilityClass}`}
               >
                 {/* Video Container (16:9 aspect ratio) */}
                 <div className="relative aspect-video w-full overflow-hidden bg-black">
@@ -348,6 +384,23 @@ export const PhysioTubes: React.FC = () => {
               </article>
             );
           })}
+        </div>
+
+        {/* View More / Show Less Button */}
+        <div className="flex justify-center mt-8 sm:mt-10 mb-12 sm:mb-14">
+          <button
+            type="button"
+            onClick={handleToggleExpand}
+            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-emerald-50 text-slate-800 hover:text-[#14532D] border border-slate-200/90 hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all duration-300 font-heading font-bold text-xs sm:text-sm cursor-pointer hover:scale-103 active:scale-95"
+            aria-expanded={isExpanded}
+          >
+            <span>{isExpanded ? "Show Less" : "View More"}</span>
+            {isExpanded ? (
+              <ChevronUp className="w-4 h-4 text-emerald-600 transition-transform duration-200 group-hover:-translate-y-0.5" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-emerald-600 transition-transform duration-200 group-hover:translate-y-0.5" />
+            )}
+          </button>
         </div>
 
         {/* Channel Banner Callout - Fully Responsive & Perfectly Aligned */}

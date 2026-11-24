@@ -234,14 +234,6 @@ export const HowItWorks: React.FC = () => {
 
                         {/* Lower connecting gradient line with glow */}
                         <div className="w-2 h-14 sm:h-18 rounded-full bg-gradient-to-b from-emerald-600 via-emerald-500/60 to-emerald-500/10 shadow-[0_0_12px_rgba(22,163,74,0.4)]" />
-
-                        {/* Step progression pill */}
-                        <div className="mt-3.5 inline-flex items-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-950 font-heading bg-gradient-to-r from-emerald-100/90 via-emerald-50 to-emerald-100/90 px-4 sm:px-5 py-1.5 rounded-full border border-emerald-300 shadow-sm">
-                          <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-                          <span>Step {step.number}</span>
-                          <span className="text-emerald-600 font-bold">➔</span>
-                          <span>Next: Step {String(Number(step.number) + 1).padStart(2, "0")}</span>
-                        </div>
                       </div>
                     )}
                   </div>
